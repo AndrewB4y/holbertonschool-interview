@@ -19,11 +19,12 @@ def canUnlockAll(boxes):
 
     unlocked = [0]*len(boxes)
     unlocked[0] = -1
+    l = len(boxes)
 
     while -1 in unlocked:
         idx = unlocked.index(-1)
         for k in boxes[idx]:
-            if unlocked[k] == 0:
+            if k < l and unlocked[k] == 0:
                 unlocked[k] = -1
         unlocked[idx] = 1
 
